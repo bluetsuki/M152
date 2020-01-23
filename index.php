@@ -10,12 +10,12 @@ else
 $permission = [
     "Anonymous"=>[
         "default"=>"home",
-        "post"=>"myAccount",
+        "post"=>"post",
 
     ],
     "User"=>[
         "default"=>"home",
-        "post"=>"myAccount",
+        "post"=>"post",
     ]
 ];
 

@@ -19,13 +19,32 @@
         </form>
       </div>
       <div class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
+              <span class="input-group-text"><img src="img/home-solid.svg" width="20" height="20"></span>
+              <a class="nav-link text-white" href="?action=home">Home</a>
+            </li>
+            <li class="nav-item">
+              <img src="img/plus-solid.svg" width="20" height="20">
+              <a class="nav-link text-white" href="?action=post">Post</a>
             </li>
         </ul>
       </div>
     </nav>
+    <div class="card float-left" style="width: 18rem;">
+    <img src="img/sunset.png" class="card-img-top" alt="sunset">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some test</p>
+        </div>
+    </div>
+    <div class="card float-right" style="width: 18rem;">
+      <img src="img/sunset.png" class="card-img-top" alt="sunset">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some test</p>
+      </div>
+    </div>
   </div>
 </body>
 </html>
