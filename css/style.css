@@ -1,7 +1,12 @@
-.nav{
-    background-color: #2851A3 !important ;
+body {
+     background-color: #E8E7EB !important;
 }
 
-svg{
-  color: white;
+.nav{
+    background-color: #2851A3 !important;
+}
+
+.crdimg{
+     max-width: 500px;
+     min-width: 200px;
 }

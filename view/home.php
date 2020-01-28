@@ -32,12 +32,35 @@
                     </ul>
                </div>
           </nav>
-          <div class="card" style="width: 18rem;">
-               <img src="img/sunset.png" class="card-img-top" alt="...">
-               <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+          <div class="row">
+               <div class="card col-3 ml-5 mt-3">
+                    <img src="img/sunset.png" class="card-img-top crdimg mt-3" alt="...">
+                    <div class="card-body">
+                         <h5 class="card-title">smoll</h5>
+                         <p>100 Followers, 10 Post</p>
+                         <img src="img/user-regular.svg" height="25px">
+                    </div>
+               </div>
+               <div class="col-7 ml-5 mt-3">
+                    <div class="card">
+                         <div class="card-body">
+                              <h3 class="card-title">Welcome</h3>
+                         </div>
+                    </div>
+                    <div class="card mt-3">
+                         <img src="img/flower.jpg" class="card-img-top crdimg rounded mx-auto d-block mt-3" alt="...">
+                         <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                         </div>
+                    </div>
+               </div>
+               <div class="card col-3 ml-5 mt-3">
+                    <img src="img/sunset.png" class="card-img-top crdimg mt-3" alt="...">
+                    <div class="card-body">
+                         <h5>blup</h5>
+                    </div>
                </div>
           </div>
      </div>
