@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark nav">
+<nav class="navbar navbar-expand-lg navbar-dark colorB">
      <div class="collapse navbar-collapse">
           <a class="navbar-brand">
                <img style="margin-right: 10px;" src="img/bimobject-brands.svg" height="25">

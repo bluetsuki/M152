@@ -13,14 +13,11 @@
           <?php require_once 'nav.php'; ?>
           <form>
                <div class="form-group">
-                    <label>Poster votre message</label>
-                    <textarea rows="10" class="form-control"></textarea>
+                    <textarea rows="10" class="form-control mt-3" placeholder="Poster votre message"></textarea>
                </div>
-               <div class="form-group">
-                    <div class="upload-btn-wrapper">
-                         <img class="imgCustom" src="img/camera-retro-solid.svg" height="30">
-                         <input type="file" name="myfile"/>
-                    </div>
+               <div class="upload-btn-wrapper">
+                    <img class="imgCustom" src="img/camera-retro-solid.svg" height="30">
+                    <input type="file" name="myfile"/>
                </div>
                <button type="submit" class="btn btn-outline-light float-right colorB">Envoyer</button>
           </form>
