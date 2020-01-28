@@ -2,7 +2,7 @@ body {
      background-color: #E8E7EB !important;
 }
 
-.nav{
+.colorB{
     background-color: #2851A3 !important;
 }
 
@@ -13,4 +13,26 @@ body {
 
 textarea {
    resize: none;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.imgCustom {
+  border: none;
+  padding: 2px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
 }

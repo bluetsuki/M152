@@ -16,7 +16,13 @@
                     <label>Poster votre message</label>
                     <textarea rows="10" class="form-control"></textarea>
                </div>
-               <button type="submit" class="btn btn-outline-success">Envoyer</button>
+               <div class="form-group">
+                    <div class="upload-btn-wrapper">
+                         <img class="imgCustom" src="img/camera-retro-solid.svg" height="30">
+                         <input type="file" name="myfile"/>
+                    </div>
+               </div>
+               <button type="submit" class="btn btn-outline-light float-right colorB">Envoyer</button>
           </form>
      </div>
 </body>
