@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 29, 2020 at 08:47 PM
+-- Generation Time: Jan 29, 2020 at 10:09 PM
 -- Server version: 5.7.17
 -- PHP Version: 7.1.3
 
@@ -35,8 +35,18 @@ CREATE TABLE `media` (
   `typeMedia` varchar(50) NOT NULL,
   `nameMedia` varchar(200) NOT NULL,
   `dateCreation` date NOT NULL,
-  `dateModification` date NOT NULL
+  `dateModification` date DEFAULT NULL,
+  `pathImg` varchar(100) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `media`
+--
+
+INSERT INTO `media` (`idMedia`, `typeMedia`, `nameMedia`, `dateCreation`, `dateModification`, `pathImg`) VALUES
+(1, 'image', 'ARLAffiche.png', '2020-01-29', NULL, 'upload/ARLAffiche.png'),
+(2, 'image', 'tumblr_ovcll4Wh0l1wvncv4o1_500.jpg', '2020-01-29', NULL, 'upload/tumblr_ovcll4Wh0l1wvncv4o1_500.jpg'),
+(3, 'image', 'ex07.png', '2020-01-29', NULL, 'upload/ex07.png');
 
 -- --------------------------------------------------------
 
@@ -48,7 +58,7 @@ CREATE TABLE `post` (
   `idPost` int(11) NOT NULL,
   `commentaire` varchar(250) NOT NULL,
   `dateCreation` date NOT NULL,
-  `dateModification` date NOT NULL,
+  `dateModification` date DEFAULT NULL,
   `idMedia` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -77,7 +87,7 @@ ALTER TABLE `post`
 -- AUTO_INCREMENT for table `media`
 --
 ALTER TABLE `media`
-  MODIFY `idMedia` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idMedia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `post`
 --
