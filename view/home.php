@@ -9,12 +9,12 @@
     <title>Home</title>
 </head>
 <body>
+    <?php require_once 'nav.php'; ?>
     <div class="container">
-        <?php require_once 'nav.php'; ?>
         <div class="row">
-            <div class="col-3 ml-5 mt-3">
+            <div class="col-sm-5 mt-3">
                 <div class="card">
-                    <img src="img/sunset.png" class="card-img-top crdimg mt-3" alt="...">
+                    <img src="img/sunset.png" class="card-img-top crdimg rounded mx-auto d-block mt-3" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">smoll</h5>
                         <p>100 Followers, 10 Post</p>
@@ -22,7 +22,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-7 ml-5 mt-3">
+            <div class="col-sm-7 mt-3">
                 <div class="card">
                     <div class="card-body">
                         <h3 class="card-title">Welcome</h3>
