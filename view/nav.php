@@ -7,14 +7,14 @@
                <input class="form-control" size="50" type="search" placeholder="Search" aria-label="Search">
                <span class="input-group-text"><img src="img/search-solid.svg" height="25"></span>
           </form>
-          <ul class="navbar-nav mr-auto">
-               <li class="nav-item ml-5">
-                    <a class="nav-link" href="?action=home"><img style="margin-right: 5px;" src="img/home-solid.svg" height="25">Home</a>
+          <ul class="nav navbar-nav">
+               <li class="ml-5">
+                    <a class="nav-link glyphicon glyphicon-home" href="?action=home"><img style="margin-right: 5px;" src="img/home-solid.svg" height="25">Home</a>
                </li>
-               <li class="nav-item ml-5">
+               <li class="ml-5">
                     <a class="nav-link" href="?action=post"><img style="margin-right: 5px;" src="img/plus-solid.svg" height="25">Post</a>
                </li>
-               <li class="nav-item ml-5">
+               <li class="ml-5">
                     <a class="nav-link"><img src="img/user-solid.svg" height="25"></a>
                </li>
           </ul>

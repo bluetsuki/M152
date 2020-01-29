@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'model/crud.php';
 $action = filter_input(INPUT_GET, "action", FILTER_SANITIZE_STRING);
 
 if(isset($_SESSION['role']))

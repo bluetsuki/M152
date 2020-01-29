@@ -11,15 +11,15 @@
 <body>
      <div class="container">
           <?php require_once 'nav.php'; ?>
-          <form>
+          <form action="model/post.php" method="POST" enctype="multipart/form-data">
                <div class="form-group">
                     <textarea rows="10" class="form-control mt-3" placeholder="Poster votre message"></textarea>
                </div>
                <div class="upload-btn-wrapper">
                     <img class="imgCustom" src="img/camera-retro-solid.svg" height="30">
-                    <input type="file" name="myfile"/>
+                    <input type="file" name="imgPost"/ accept="image/*">
                </div>
-               <button type="submit" class="btn btn-outline-light float-right colorB">Envoyer</button>
+               <button type="submit" name="sendImg" class="btn btn-outline-light float-right colorB">Envoyer</button>
           </form>
      </div>
 </body>

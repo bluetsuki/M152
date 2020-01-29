@@ -19,6 +19,7 @@ textarea {
   position: relative;
   overflow: hidden;
   display: inline-block;
+  transition: all 0.4s;
 }
 
 .imgCustom {
