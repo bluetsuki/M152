@@ -61,6 +61,7 @@ function checkNameIMg(){
      $display = getConnexion();
      $req = $display->prepare("SELECT nameMedia, pathImg FROM media");
      $req->execute();
+     
      $res = $req->fetchAll(PDO::FETCH_ASSOC);
      if ($value['nameMedia']) {
      foreach ($res as $key => $value) {
