@@ -21,11 +21,24 @@ function getConnexion()
 }
 
 //INSERT
-function addImage($type, $name, $path)
+function addImage($type, $name, $desc, $path)
 {
      $connexion = getConnexion();
      $date = date("Y-m-d H:i:s");
-     $req = $connexion->prepare("INSERT INTO media (typeMedia, nameMedia, dateCreation, pathImg) VALUES (:type, :name, :dateCrea, :pathImg)");
+     $req = $connexion->prepare("INSERT INTO media (typeMedia, nameMedia, description, dateCreation, pathImg) VALUES (:type, :name, :description, :dateCrea, :pathImg)");
+     $req->bindParam(":type", $type, PDO::PARAM_STR);
+     $req->bindParam(":name", $name, PDO::PARAM_STR);
+     $req->bindParam(":description", $description, PDO::PARAM_STR);
+     $req->bindParam(":dateCrea", $date, PDO::PARAM_STR);
+     $req->bindParam(":pathImg", $path, PDO::PARAM_STR);
+     $req->execute();
+}
+
+function addPost($comment)
+{
+     $connexion = getConnexion();
+     $date = date("Y-m-d H:i:s");
+     $req = $connexion->prepare("INSERT INTO media (commentaire, dateCreation, idMedia) VALUES (:type, :name, :dateCrea, :pathImg)");
      $req->bindParam(":type", $type, PDO::PARAM_STR);
      $req->bindParam(":name", $name, PDO::PARAM_STR);
      $req->bindParam(":dateCrea", $date, PDO::PARAM_STR);
@@ -36,11 +49,21 @@ function addImage($type, $name, $path)
 //READ
 function displayImg(){
      $display = getConnexion();
-     $req = $display->prepare("SELECT pathImg FROM media");
+     $req = $display->prepare("SELECT description, pathImg FROM media");
      $req->execute();
      $res = $req->fetchAll(PDO::FETCH_ASSOC);
      foreach ($res as $key => $value) {
-            echo '<div class="card mt-3"><img src="'. $value['pathImg'] .'" class="card-img-top crdimg rounded mx-auto d-block mt-3" alt="..."><div class="card-body"><h5>blup</h5></div></div>';
+          echo '<div class="card mt-3"><img src="'. $value['pathImg'] .'" class="card-img-top crdimg rounded mx-auto d-block mt-3" alt="..."><div class="card-body"><h5>'. $value['description'] .'</h5></div></div>';
+     }
+}
+
+function checkNameIMg(){
+     $display = getConnexion();
+     $req = $display->prepare("SELECT nameMedia, pathImg FROM media");
+     $req->execute();
+     $res = $req->fetchAll(PDO::FETCH_ASSOC);
+     foreach ($res as $key => $value) {
+          
      }
 }
 
