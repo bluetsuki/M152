@@ -3,37 +3,25 @@ body {
 }
 
 .colorB{
-    background-color: #2851A3 !important;
+     background-color: #2851A3 !important;
 }
 
 .crdimg{
-     max-width: 500px;
-     min-width: 200px;
+     max-width: 400px;
+     min-width: 100px;
 }
 
 textarea {
-   resize: none;
+     resize: none;
 }
 
-.upload-btn-wrapper {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-  transition: all 0.4s;
+.cmrRetro{
+     padding: 5px;
+     z-index: 2;
 }
 
-.imgCustom {
-  border: none;
-  padding: 2px;
-  border-radius: 8px;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.upload-btn-wrapper input[type=file] {
-  font-size: 100px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
+.cmrRetro:hover{
+     background-color: rgba(80, 80, 80, 0.3);
+     border-radius: 50%;
+     z-index: 1;
 }

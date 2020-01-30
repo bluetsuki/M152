@@ -28,7 +28,7 @@ function addImage($type, $name, $desc, $path)
      $req = $connexion->prepare("INSERT INTO media (typeMedia, nameMedia, description, dateCreation, pathImg) VALUES (:type, :name, :description, :dateCrea, :pathImg)");
      $req->bindParam(":type", $type, PDO::PARAM_STR);
      $req->bindParam(":name", $name, PDO::PARAM_STR);
-     $req->bindParam(":description", $description, PDO::PARAM_STR);
+     $req->bindParam(":description", $desc, PDO::PARAM_STR);
      $req->bindParam(":dateCrea", $date, PDO::PARAM_STR);
      $req->bindParam(":pathImg", $path, PDO::PARAM_STR);
      $req->execute();
@@ -62,8 +62,10 @@ function checkNameIMg(){
      $req = $display->prepare("SELECT nameMedia, pathImg FROM media");
      $req->execute();
      $res = $req->fetchAll(PDO::FETCH_ASSOC);
+     if ($value['nameMedia']) {
      foreach ($res as $key => $value) {
-          
+               // code...
+          }
      }
 }
 

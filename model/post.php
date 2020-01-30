@@ -1,3 +1,4 @@
+
 <?php
 require_once 'crud.php';
 $btn = filter_input(INPUT_POST, 'sendImg', FILTER_SANITIZE_STRING);
