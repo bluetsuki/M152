@@ -6,7 +6,6 @@ if (isset($btn)) {
      $comment = filter_input(INPUT_POST, 'comment', FILTER_SANITIZE_STRING);
      $localPath = '../upload/';
      $nbFiles = count($_FILES['imgPost']['name']);
-
      for($i=0; $i < $nbFiles ;$i++){
           $filename = $_FILES['imgPost']['name'][$i];
           move_uploaded_file($_FILES['imgPost']['tmp_name'][$i], $localPath . $filename);

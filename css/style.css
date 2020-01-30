@@ -2,6 +2,23 @@ body {
      background-color: #E8E7EB !important;
 }
 
+textarea {
+     resize: none;
+}
+
+nav li{
+    transition: background-color 0.5s;
+    padding: 6px;
+}
+
+nav li:hover{
+    background-color: rgba(10, 43, 109, 0.3);
+}
+
+#previewImg{
+    /* max-width: 200px; */
+}
+
 .colorB{
      background-color: #2851A3 !important;
 }
@@ -11,9 +28,6 @@ body {
      min-width: 100px;
 }
 
-textarea {
-     resize: none;
-}
 
 .cmrRetro{
      border-radius: 50%;
