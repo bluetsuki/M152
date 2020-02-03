@@ -1,8 +1,8 @@
 <?php
 DEFINE('DB_HOST', 'localhost');
-DEFINE('DB_NAME', 'M152');
+DEFINE('DB_NAME', 'm152');
 DEFINE('DB_USER', 'root');
-DEFINE('DB_PASS', '');
+DEFINE('DB_PASS', 'Super');
 
 function getConnexion()
 {
