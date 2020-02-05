@@ -17,7 +17,7 @@
             </div>
             <label for="fileUpload" class="cmrRetro"><img style="margin: auto; display: block;" src="img/camera-retro-solid.svg" height="20em" /></label>
             <input type="file" name="imgPost[]" multiple accept="image/*" style="display: none;" id="fileUpload" class="form-control-file" onchange="loadFile(event)">
-            <input type="submit" name="sendImg" class="btn btn-outline-light float-right colorB" value="Envoyer">
+            <input type="submit" name="sendImg" class="btn btn-outline-light float-right colorB text-white" value="Envoyer">
         </form>
         <div id="previewImg" class="ml-3"></div>
     </div>
