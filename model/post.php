@@ -9,14 +9,17 @@ if ($btn == 'Envoyer') {
 
     for($i = 0; $i < $nbFiles ;$i++){
         $filename = $_FILES['imgPost']['name'][$i];
+        $sizeTotal += $_FILES['imgPost']['size'][$i];
 
         if ($_FILES['imgPost']['size'][$i] > 3000000) {
+            header('Location: ?action=post');
+            exit;
+        }else if ($sizeTotal > 70000000) {
             header('Location: ?action=post');
             exit;
         }else {
             addImage("image", trim($filename . uniqid()), $comment, 'upload/' . $filename);
             move_uploaded_file($_FILES['imgPost']['tmp_name'][$i], 'upload/'. $filename);
-
         }
         header('Location: ?action=home');
         exit;
