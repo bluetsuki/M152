@@ -9,18 +9,18 @@
     <title>Home</title>
 </head>
 <body>
+     <?php require_once 'nav.php'; ?>
     <div class="container">
-        <?php require_once 'nav.php'; ?>
-        <form action="model/post.php" method="POST" enctype="multipart/form-data">
+        <form action="?action=post" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <textarea rows="10" name="comment" class="form-control mt-3" placeholder="Poster votre message"></textarea>
             </div>
             <label for="fileUpload" class="cmrRetro"><img style="margin: auto; display: block;" src="img/camera-retro-solid.svg" height="20em" /></label>
-            <input type="file" name="imgPost[]" multiple accept="image/*"style="display: none;" id="fileUpload" class="form-control-file" onchange="loadFile(event)">
-            <button type="submit" name="sendImg" class="btn btn-outline-light float-right colorB">Envoyer</button>
+            <input type="file" name="imgPost[]" multiple accept="image/*" style="display: none;" id="fileUpload" class="form-control-file" onchange="loadFile(event)">
+            <input type="submit" name="sendImg" class="btn btn-outline-light float-right colorB" value="Envoyer">
         </form>
         <div id="previewImg" class="ml-3"></div>
     </div>
-    <script src="js/previewImg.js"></script>
+    <script src="js/previewImg.js" type="text/javascript"></script>
 </body>
 </html>
