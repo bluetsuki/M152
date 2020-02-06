@@ -11,12 +11,12 @@
 <body>
      <?php require_once 'nav.php'; ?>
     <div class="container">
-        <form action="?action=post" method="post" enctype="multipart/form-data">
+        <form action="" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <textarea rows="10" name="comment" class="form-control mt-3" placeholder="Poster votre message"></textarea>
             </div>
-            <label for="fileUpload" class="cmrRetro"><img style="margin: auto; display: block;" src="img/camera-retro-solid.svg" height="20em" /></label>
-            <input type="file" name="imgPost[]" multiple accept="image/*" style="display: none;" id="fileUpload" class="form-control-file" onchange="loadFile(event)">
+            <label for="imgPost" class="cmrRetro"><img style="margin: auto; display: block;" src="img/camera-retro-solid.svg" height="20em" /></label>
+            <input type="file" name="imgPost[]" multiple id="imgPost" accept="image/*" style="display: none;" class="form-control-file" onchange="loadFile(event)">
             <input type="submit" name="sendImg" class="btn btn-outline-light float-right colorB" value="Envoyer">
         </form>
         <div id="previewImg" class="ml-3"></div>
