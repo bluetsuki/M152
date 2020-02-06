@@ -6,6 +6,8 @@
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
      <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="css/nav/navStyle.css">
+     <link rel="stylesheet" href="css/post/postStyle.css">
      <title>Home</title>
 </head>
 <body>
@@ -14,11 +16,11 @@
           <div class="row">
                <div class="col-sm-5 mt-3">
                     <div class="card">
-                         <img src="img/sunset.png" class="card-img-top crdimg rounded mx-auto d-block mt-3" alt="...">
+                         <img src="media/imgUpload/sunset.png" class="card-img-top crdimg rounded mx-auto d-block mt-3" alt="...">
                          <div class="card-body">
                               <h5 class="card-title">smoll</h5>
                               <p>100 Followers, 10 Post</p>
-                              <img src="img/user-regular.svg" height="25px">
+                              <img src="media/img/user-regular.svg" height="25px">
                          </div>
                     </div>
                </div>
@@ -29,7 +31,17 @@
                          </div>
                     </div>
                     <div class="card mt-3">
-                         <img src="img/flower.jpg" class="crdimg rounded mx-auto mt-3" alt="flower">
+                         <form>
+                              <div class="imgModif float-right">
+                                   <button>
+                                        <img class="defImg" src="media/img/keyboard-regular.svg">
+                                   </button>
+                                   <button>
+                                        <img class="defImg" src="media/img/trash-alt-regular.svg">
+                                   </button>
+                              </div>
+                         </form>
+                         <img src="media/imgUpload/flower.jpg" class="crdimg rounded mx-auto mt-3" alt="flower">
                          <div class="card-body">
                               <h5 class="card-title">Card title</h5>
                               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

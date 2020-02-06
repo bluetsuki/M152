@@ -2,39 +2,6 @@ body {
      background-color: #E8E7EB !important;
 }
 
-textarea {
-     resize: none;
-}
-
-nav li{
-    transition: background-color 0.5s;
-    padding: 6px;
-}
-
-nav li:hover{
-    background-color: rgba(10, 43, 109, 0.3);
-}
-
-#bigFile{
-    color: red;
-}
-
 .colorB{
      background-color: #2851A3 !important;
-}
-
-.crdimg{
-     max-width: 400px;
-     min-width: 100px;
-}
-
-
-.cmrRetro{
-     border-radius: 50%;
-     padding: 5px;
-     transition: background-color 0.5s;
-}
-
-.cmrRetro:hover{
-     background-color: rgba(80, 80, 80, 0.3);
 }

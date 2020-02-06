@@ -2,7 +2,7 @@
 DEFINE('DB_HOST', 'localhost');
 DEFINE('DB_NAME', 'm152');
 DEFINE('DB_USER', 'root');
-DEFINE('DB_PASS', 'Super');
+DEFINE('DB_PASS', '');
 
 function getConnexion()
 {
@@ -21,52 +21,44 @@ function getConnexion()
 }
 
 //INSERT
-function addImage($type, $name, $desc, $path)
+function addPost($comment, $date)
 {
      $connexion = getConnexion();
-     $date = date("Y-m-d H:i:s");
-     $req = $connexion->prepare("INSERT INTO media (typeMedia, nameMedia, description, dateCreation, pathImg) VALUES (:type, :name, :description, :dateCrea, :pathImg)");
+     $req = $connexion->prepare("INSERT INTO post (commentaire, dateCreation) VALUES (:comment, :dateCrea)");
      $req->bindParam(":type", $type, PDO::PARAM_STR);
-     $req->bindParam(":name", $name, PDO::PARAM_STR);
-     $req->bindParam(":description", $desc, PDO::PARAM_STR);
      $req->bindParam(":dateCrea", $date, PDO::PARAM_STR);
-     $req->bindParam(":pathImg", $path, PDO::PARAM_STR);
      $req->execute();
 }
 
-function addPost($comment)
+function lastId($comment, $date){
+     $connexion = getConnexion();
+     $req = $connexion->prepare("SELECT idPost, commentaire, dateCrea FROM post WHERE commentaire = :commentaire AND dateCrea = :dateCrea");
+     $req->bindParam(":commentaire", $comment, PDO::PARAM_STR);
+     $req->bindParam(":dateCrea", $date, PDO::PARAM_STR);
+     return $req->execute()["idPost"];
+}
+
+function addImage($type, $name, $path, $id)
 {
      $connexion = getConnexion();
      $date = date("Y-m-d H:i:s");
-     $req = $connexion->prepare("INSERT INTO media (commentaire, dateCreation, idMedia) VALUES (:type, :name, :dateCrea, :pathImg)");
+     $req = $connexion->prepare("INSERT INTO media (typeMedia, nameMedia, dateCreation, pathImg, idPost) VALUES (:type, :name, :dateCrea, :pathImg, :idPost)");
      $req->bindParam(":type", $type, PDO::PARAM_STR);
      $req->bindParam(":name", $name, PDO::PARAM_STR);
      $req->bindParam(":dateCrea", $date, PDO::PARAM_STR);
      $req->bindParam(":pathImg", $path, PDO::PARAM_STR);
+     $req->bindParam(":idPost", $id, PDO::PARAM_INT);
      $req->execute();
 }
 
 //READ
 function displayImg(){
      $display = getConnexion();
-     $req = $display->prepare("SELECT description, pathImg FROM media");
+     $req = $display->prepare("SELECT pathImg FROM media ORDER BY dateCreation DESC");
      $req->execute();
      $res = $req->fetchAll(PDO::FETCH_ASSOC);
      foreach ($res as $key => $value) {
-          echo '<div class="card mt-3"><img src="'. $value['pathImg'] .'" class="card-img-top crdimg rounded mx-auto d-block mt-3" alt="..."><div class="card-body"><h5>'. $value['description'] .'</h5></div></div>';
-     }
-}
-
-function checkNameIMg(){
-     $display = getConnexion();
-     $req = $display->prepare("SELECT nameMedia, pathImg FROM media");
-     $req->execute();
-
-     $res = $req->fetchAll(PDO::FETCH_ASSOC);
-     if ($value['nameMedia']) {
-     foreach ($res as $key => $value) {
-               // code...
-          }
+          echo '<div class="card mt-3"><form><div class="imgModif float-right"><button><img class="defImg" src="media/img/keyboard-regular.svg"></button><button><img class="defImg" src="media/img/trash-alt-regular.svg"></button></div></form><img src="'. $value['pathImg'] .'" class="card-img-top crdimg rounded mx-auto d-block mt-3" alt="..."><div class="card-body"><h5></h5></div></div>';
      }
 }
 
@@ -87,27 +79,4 @@ function editGroup($nameGroup, $debutDate, $agence, $id){
      $req->bindParam(":agence", $agence, PDO::PARAM_INT);
      $req->bindParam(":id", $id, PDO::PARAM_INT);
      $req->execute();
-}
-
-function getIdolGroup($nameGroup){
-     $display = getConnexion();
-     $req = $display->prepare("SELECT idGroup, nameGroup, debutDate, logo, gender, nameAgence FROM groups as b, agences as a WHERE b.idAgence = a.idAgence AND nameGroup = :nameGroup");
-     $req->bindParam(":nameGroup", $nameGroup, PDO::PARAM_STR);
-     $req->execute();
-     $res = $req->fetchAll(PDO::FETCH_ASSOC);
-     foreach ($res as $key => $value) {
-          echo '<input type="hidden" name="id" value="'.$value['idGroup'].'">';
-          echo '<div class="form-group"><label>Nom du groupe</label><input name="updName" class="form-control" type="text" value="' . $value['nameGroup'] . '"></div>';
-          echo '<div class="form-group"><label>Début</label><input name="updDebut" class="form-control" type="text" value="' . $value['debutDate'] . '"></div>';
-          echo '<div class="form-group"><label>Nom de l\'agence</label><select class="form-control" name="updAgence">'.getAgence($nameGroup).'</select></div>';
-     }
-}
-
-function getIdAgence($group){
-     $idAgence = getConnexion();
-     $req = $idAgence->prepare("SELECT idAgence FROM groups WHERE nameGroup = :group");
-     $req->bindParam(":group", $group, PDO::PARAM_STR);
-     $req->execute();
-     $res = $req->fetchAll(PDO::FETCH_ASSOC);
-     return $res[0]['idAgence'];
 }

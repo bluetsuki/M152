@@ -1,0 +1,8 @@
+nav li{
+    transition: background-color 0.5s;
+    padding: 6px;
+}
+
+nav li:hover{
+    background-color: rgba(10, 43, 109, 0.3);
+}
