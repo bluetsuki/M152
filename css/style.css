@@ -15,8 +15,8 @@ nav li:hover{
     background-color: rgba(10, 43, 109, 0.3);
 }
 
-#previewImg{
-    /* max-width: 200px; */
+#bigFile{
+    color: red;
 }
 
 .colorB{
