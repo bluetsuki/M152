@@ -8,7 +8,6 @@ if ($btn == 'Envoyer') {
      $date = date("Y-m-d H:i:s");
      $localPath = 'media/imgUpload/';
      addPost($comment, $date);
-echo 'sdssda';
      $id = lastId($comment, $date);
      var_dump($id);
 
@@ -16,13 +15,13 @@ echo 'sdssda';
           $filename = $_FILES['imgPost']['name'][$i];
 
           if ($_FILES['imgPost']['size'][$i] > 3000000) {
-               // header('Location: ?action=post');
-               // exit;
+               header('Location: ?action=post');
+               exit;
           }else {
                move_uploaded_file($_FILES['imgPost']['tmp_name'][$i], $localPath. $filename . uniqid());
                addImage("image", trim($filename . uniqid()), $localPath . $filename, $id);
           }
      }
-     // header('Location: ?action=home');
-     // exit;
+     header('Location: ?action=home');
+     exit;
 }
