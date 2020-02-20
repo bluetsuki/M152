@@ -12,7 +12,7 @@
 <body>
      <?php require_once 'nav.php'; ?>
     <div class="container">
-        <form action="?action=post" method="post" enctype="multipart/form-data">
+        <form action="?action=post" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <textarea rows="10" name="comment" class="form-control mt-3" placeholder="Poster votre message"></textarea>
             </div>

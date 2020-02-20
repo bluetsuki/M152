@@ -21,21 +21,15 @@ function getConnexion()
 }
 
 //INSERT
-function addPost($comment, $date)
+function addPost($comment)
 {
+     $date = date("Y-m-d H:i:s");
      $connexion = getConnexion();
      $req = $connexion->prepare("INSERT INTO post (commentaire, dateCreation) VALUES (:comment, :dateCrea)");
-     $req->bindParam(":type", $type, PDO::PARAM_STR);
+     $req->bindParam(":comment", $comment, PDO::PARAM_STR);
      $req->bindParam(":dateCrea", $date, PDO::PARAM_STR);
      $req->execute();
-}
-
-function lastId($comment, $date){
-     $connexion = getConnexion();
-     $req = $connexion->prepare("SELECT idPost, commentaire, dateCrea FROM post WHERE commentaire = :commentaire AND dateCrea = :dateCrea");
-     $req->bindParam(":commentaire", $comment, PDO::PARAM_STR);
-     $req->bindParam(":dateCrea", $date, PDO::PARAM_STR);
-     return $req->execute()["idPost"];
+     return $connexion->lastInsertId();
 }
 
 function addImage($type, $name, $path, $id)
