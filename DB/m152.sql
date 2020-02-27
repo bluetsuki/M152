@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  jeu. 20 fév. 2020 à 10:21
+-- Généré le :  jeu. 27 fév. 2020 à 11:20
 -- Version du serveur :  10.3.18-MariaDB-0+deb10u1
 -- Version de PHP :  7.3.11-1~deb10u1
 
@@ -33,6 +33,7 @@ USE `m152`;
 CREATE TABLE `media` (
   `idMedia` int(11) UNSIGNED NOT NULL,
   `typeMedia` varchar(50) NOT NULL,
+  `extension` varchar(10) NOT NULL,
   `nameMedia` varchar(200) NOT NULL,
   `dateCreation` date NOT NULL,
   `dateModification` date DEFAULT NULL,
@@ -44,8 +45,12 @@ CREATE TABLE `media` (
 -- Déchargement des données de la table `media`
 --
 
-INSERT INTO `media` (`idMedia`, `typeMedia`, `nameMedia`, `dateCreation`, `dateModification`, `pathImg`, `idPost`) VALUES
-(4, 'image', 'raspiLogo.jpg5e4e4550ea414', '2020-02-20', NULL, 'media/imgUpload/raspiLogo.jpg', 1);
+INSERT INTO `media` (`idMedia`, `typeMedia`, `extension`, `nameMedia`, `dateCreation`, `dateModification`, `pathImg`, `idPost`) VALUES
+(29, 'video', 'webm', 'If Programming Was An Anime-pKO9UjSeLew.webm', '2020-02-27', NULL, 'media/video/5e578c831da40If Programming Was An Anime-pKO9UjSeLew.webm', 46),
+(30, 'audio', 'mpeg', '01. 어떤 별보다 (online-audio-converter.com).mp3', '2020-02-27', NULL, 'media/audio/5e578e6ed919301. 어떤 별보다 (online-audio-converter.com).mp3', 48),
+(44, 'image', 'jpeg', 'raspiLogo.jpg', '2020-02-27', NULL, 'media/image/5e5796ab5d674raspiLogo.jpg', 61),
+(45, 'image', 'jpeg', 'raspiLogo.jpg', '2020-02-27', NULL, 'media/image/5e5796b693dd6raspiLogo.jpg', 62),
+(46, 'image', 'webp', 'raspiLogo.webp', '2020-02-27', NULL, 'media/image/5e5796b696159raspiLogo.webp', 62);
 
 -- --------------------------------------------------------
 
@@ -56,7 +61,7 @@ INSERT INTO `media` (`idMedia`, `typeMedia`, `nameMedia`, `dateCreation`, `dateM
 CREATE TABLE `post` (
   `idPost` int(11) UNSIGNED NOT NULL,
   `commentaire` varchar(250) NOT NULL,
-  `dateCreation` date NOT NULL,
+  `dateCreation` datetime NOT NULL,
   `dateModification` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -65,9 +70,18 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`idPost`, `commentaire`, `dateCreation`, `dateModification`) VALUES
-(1, 'asds', '2020-02-20', NULL),
-(2, 'asds', '2020-02-20', NULL),
-(3, 'CA MARCHE ?!', '2020-02-20', NULL);
+(39, 'SUNSET ', '2020-02-27 00:00:00', NULL),
+(40, 'Bonjour', '2020-02-27 00:00:00', NULL),
+(41, 'Video', '2020-02-27 00:00:00', NULL),
+(42, 'asdsa', '2020-02-27 00:00:00', NULL),
+(43, 'video test 2', '2020-02-27 00:00:00', NULL),
+(44, 'adssdsaad', '2020-02-27 00:00:00', NULL),
+(45, '', '2020-02-27 00:00:00', NULL),
+(46, 'videage test 3', '2020-02-27 00:00:00', NULL),
+(47, '', '2020-02-27 00:00:00', NULL),
+(48, 'sound on :*', '2020-02-27 00:00:00', NULL),
+(61, 'asdsa', '2020-02-27 11:15:07', NULL),
+(62, 'raspi 2', '2020-02-27 11:15:18', NULL);
 
 --
 -- Index pour les tables déchargées
@@ -94,13 +108,13 @@ ALTER TABLE `post`
 -- AUTO_INCREMENT pour la table `media`
 --
 ALTER TABLE `media`
-  MODIFY `idMedia` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idMedia` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT pour la table `post`
 --
 ALTER TABLE `post`
-  MODIFY `idPost` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idPost` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- Contraintes pour les tables déchargées
