@@ -23,10 +23,9 @@ if ($btn == 'Envoyer') {
           if ($id > 0) {
                if ($sizeTotal > 0) {
                     for($i = 0; $i < $nbFiles ;$i++){
-                         $localPath = 'media/';
-
-                         $type = explode('/', mime_content_type($_FILES['imgPost']['tmp_name'][$i]))[0];
                          $ext = explode('/', mime_content_type($_FILES['imgPost']['tmp_name'][$i]))[1];
+                         $type = explode('/', mime_content_type($_FILES['imgPost']['tmp_name'][$i]))[0];
+                         $localPath = 'media/';
                          $localPath .= $type . '/';
                          $tmpName = $_FILES['imgPost']['tmp_name'][$i];
                          $filename = $_FILES['imgPost']['name'][$i];
