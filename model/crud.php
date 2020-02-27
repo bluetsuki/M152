@@ -32,12 +32,13 @@ function addPost($comment)
      return $connexion->lastInsertId();
 }
 
-function addImage($type, $name, $path, $id)
+function addMedia($type, $name, $ext, $path, $id)
 {
      $connexion = getConnexion();
      $date = date("Y-m-d H:i:s");
-     $req = $connexion->prepare("INSERT INTO media (typeMedia, nameMedia, dateCreation, pathImg, idPost) VALUES (:type, :name, :dateCrea, :pathImg, :idPost)");
+     $req = $connexion->prepare("INSERT INTO media (typeMedia, extension, nameMedia, dateCreation, pathImg, idPost) VALUES (:type, :ext, :name, :dateCrea, :pathImg, :idPost)");
      $req->bindParam(":type", $type, PDO::PARAM_STR);
+     $req->bindParam(":ext", $ext, PDO::PARAM_STR);
      $req->bindParam(":name", $name, PDO::PARAM_STR);
      $req->bindParam(":dateCrea", $date, PDO::PARAM_STR);
      $req->bindParam(":pathImg", $path, PDO::PARAM_STR);
@@ -48,7 +49,7 @@ function addImage($type, $name, $path, $id)
 //READ
 function getMedia($id){
      $display = getConnexion();
-     $req = $display->prepare("SELECT typeMedia, pathImg FROM media WHERE idPost = :id");
+     $req = $display->prepare("SELECT typeMedia, extension, pathImg FROM media WHERE idPost = :id");
      $req->bindParam(":id", $id, PDO::PARAM_INT);
      $req->execute();
      $res = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -57,7 +58,7 @@ function getMedia($id){
 
 function getPost(){
      $display = getConnexion();
-     $req = $display->prepare("SELECT idPost, commentaire, dateCreation FROM post ORDER BY dateCreation DESC");
+     $req = $display->prepare("SELECT idPost, commentaire, dateCreation FROM post ORDER BY idPost DESC");
      $req->execute();
      $res = $req->fetchAll(PDO::FETCH_ASSOC);
      return $res;

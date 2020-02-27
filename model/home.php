@@ -12,11 +12,11 @@ function displayPost(){
                     break;
 
                     case 'video':
-                    // code...
+                    $display .= '<video width="320" height="240" controls autoplay loop><source src="'. $m['pathImg'] .'" type="video/'. $m['extension'] .'"></video>';
                     break;
 
                     case 'audio':
-                    // code...
+                    $display .= '<audio controls><source src="'. $m['pathImg'] .'" type="audio/'. $m['extension'] .'"></audio>';
                     break;
                }
           }

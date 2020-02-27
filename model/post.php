@@ -23,12 +23,13 @@ if ($btn == 'Envoyer') {
                $localPath = 'media/';
 
                $type = explode('/', mime_content_type($_FILES['imgPost']['tmp_name'][$i]))[0];
+               $ext = explode('/', mime_content_type($_FILES['imgPost']['tmp_name'][$i]))[1];
                $localPath .= $type . '/';
                $tmpName = $_FILES['imgPost']['tmp_name'][$i];
                $filename = $_FILES['imgPost']['name'][$i];
 
                //get the type of the file and if it isn't an image the user is return to the post page
-               if ($type != 'image') {
+               if ($type != 'image' && $type != 'video' && $type != 'audio') {
                     header('Location: ?action=post');
                     exit;
                }
@@ -38,9 +39,9 @@ if ($btn == 'Envoyer') {
                     exit;
                }
                else {
-                    $path = $localPath .  uniqid() . $filename;
+                    $path = str_replace(' ', '', $localPath) .  uniqid() . $filename;
                     move_uploaded_file($tmpName, $path);
-                    addImage($type, $filename, $path, $id);
+                    addMedia($type, $filename, $ext, $path, $id);
                }
           }
      }
