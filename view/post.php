@@ -17,7 +17,7 @@
                 <textarea rows="10" name="comment" class="form-control mt-3" placeholder="Poster votre message"></textarea>
             </div>
             <label for="fileUpload" class="cmrRetro"><img style="margin: auto; display: block;" src="media/img/camera-retro-solid.svg" height="20em" /></label>
-            <input type="file" name="imgPost[]" multiple accept="image/*" style="display: none;" id="fileUpload" class="form-control-file" onchange="loadFile(event)">
+            <input type="file" name="imgPost[]" multiple accept="image/*, video/*, audio/*" style="display: none;" id="fileUpload" class="form-control-file" onchange="loadFile(event)">
             <input type="submit" name="sendImg" class="btn btn-outline-light float-right colorB text-white" value="Envoyer">
         </form>
         <div id="previewImg" class="ml-3"></div>

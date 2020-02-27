@@ -43,7 +43,7 @@ function addMedia($type, $name, $ext, $path, $id)
      $req->bindParam(":dateCrea", $date, PDO::PARAM_STR);
      $req->bindParam(":pathImg", $path, PDO::PARAM_STR);
      $req->bindParam(":idPost", $id, PDO::PARAM_INT);
-     $req->execute();
+     return $req->execute();
 }
 
 //READ
@@ -62,4 +62,17 @@ function getPost(){
      $req->execute();
      $res = $req->fetchAll(PDO::FETCH_ASSOC);
      return $res;
+}
+
+//TRANSACTION
+function startTransaction(){
+    getConnexion()->beginTransaction();
+}
+
+function rollback(){
+    getConnexion()->rollback();
+}
+
+function commit(){
+    getConnexion()->commit();
 }
