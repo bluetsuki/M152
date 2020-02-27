@@ -12,11 +12,11 @@ function displayPost(){
                     break;
 
                     case 'video':
-                    $display .= '<video width="320" height="240" controls autoplay loop><source src="'. $m['pathImg'] .'" type="video/'. $m['extension'] .'"></video>';
+                    $display .= '<video class="mx-auto d-block mt-3" width="448" height="336" controls autoplay loop><source src="'. $m['pathImg'] .'" type="video/'. $m['extension'] .'"></video>';
                     break;
 
                     case 'audio':
-                    $display .= '<audio controls><source src="'. $m['pathImg'] .'" type="audio/'. $m['extension'] .'"></audio>';
+                    $display .= '<audio class="mx-auto d-block mt-3" controls><source src="'. $m['pathImg'] .'" type="audio/'. $m['extension'] .'"></audio>';
                     break;
                }
           }
