@@ -46,31 +46,19 @@ function addImage($type, $name, $path, $id)
 }
 
 //READ
-function displayImg(){
+function getMedia($id){
      $display = getConnexion();
-     $req = $display->prepare("SELECT pathImg FROM media ORDER BY dateCreation DESC");
-     $req->execute();
-     $res = $req->fetchAll(PDO::FETCH_ASSOC);
-     foreach ($res as $key => $value) {
-          echo '<div class="card mt-3"><form><div class="imgModif float-right"><button><img class="defImg" src="media/img/keyboard-regular.svg"></button><button><img class="defImg" src="media/img/trash-alt-regular.svg"></button></div></form><img src="'. $value['pathImg'] .'" class="card-img-top crdimg rounded mx-auto d-block mt-3" alt="..."><div class="card-body"><h5></h5></div></div>';
-     }
-}
-
-//DELETE
-function deleteGroup($nameGroup){
-     $del = getConnexion();
-     $req = $del->prepare("DELETE FROM groups WHERE nameGroup = :nameGroup");
-     $req->bindParam(":nameGroup", $nameGroup, PDO::PARAM_STR);
-     $req->execute();
-}
-
-//UPDATE
-function editGroup($nameGroup, $debutDate, $agence, $id){
-     $edit = getConnexion();
-     $req = $edit->prepare("UPDATE groups SET nameGroup = :nameGroup, debutDate = :debutDate, idAgence = :agence WHERE idGroup = :id");
-     $req->bindParam(":nameGroup", $nameGroup, PDO::PARAM_STR);
-     $req->bindParam(":debutDate", $debutDate, PDO::PARAM_STR);
-     $req->bindParam(":agence", $agence, PDO::PARAM_INT);
+     $req = $display->prepare("SELECT typeMedia, pathImg FROM media WHERE idPost = :id");
      $req->bindParam(":id", $id, PDO::PARAM_INT);
      $req->execute();
+     $res = $req->fetchAll(PDO::FETCH_ASSOC);
+     return $res;
+}
+
+function getPost(){
+     $display = getConnexion();
+     $req = $display->prepare("SELECT idPost, commentaire, dateCreation FROM post ORDER BY dateCreation DESC");
+     $req->execute();
+     $res = $req->fetchAll(PDO::FETCH_ASSOC);
+     return $res;
 }

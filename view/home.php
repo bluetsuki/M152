@@ -16,7 +16,7 @@
           <div class="row">
                <div class="col-sm-5 mt-3">
                     <div class="card">
-                         <img src="media/imgUpload/sunset.png" class="card-img-top crdimg rounded mx-auto d-block mt-3" alt="...">
+                         <img src="media/image/sunset.png" class="card-img-top crdimg rounded mx-auto d-block mt-3" alt="...">
                          <div class="card-body">
                               <h5 class="card-title">smoll</h5>
                               <p>100 Followers, 10 Post</p>
@@ -30,24 +30,7 @@
                               <h3 class="card-title">Welcome</h3>
                          </div>
                     </div>
-                    <div class="card mt-3">
-                         <form>
-                              <div class="imgModif float-right">
-                                   <button>
-                                        <img class="defImg" src="media/img/keyboard-regular.svg">
-                                   </button>
-                                   <button>
-                                        <img class="defImg" src="media/img/trash-alt-regular.svg">
-                                   </button>
-                              </div>
-                         </form>
-                         <img src="media/imgUpload/flower.jpg" class="crdimg rounded mx-auto mt-3" alt="flower">
-                         <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                         </div>
-                    </div>
-                    <?= displayImg(); ?>
+                    <?= displayPost(); ?>
                </div>
           </div>
      </div>
