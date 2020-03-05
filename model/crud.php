@@ -25,7 +25,7 @@ function addPost($comment)
 {
      $date = date("Y-m-d H:i:s");
      $connexion = getConnexion();
-     $req = $connexion->prepare("INSERT INTO post (commentaire, dateCreation) VALUES (:comment, :dateCrea)");
+     $req = $connexion->prepare("INSERT INTO post (comment, dateCreation) VALUES (:comment, :dateCrea)");
      $req->bindParam(":comment", $comment, PDO::PARAM_STR);
      $req->bindParam(":dateCrea", $date, PDO::PARAM_STR);
      $req->execute();
@@ -58,7 +58,7 @@ function getMedia($id){
 
 function getPost(){
      $display = getConnexion();
-     $req = $display->prepare("SELECT idPost, commentaire, dateCreation FROM post ORDER BY idPost DESC");
+     $req = $display->prepare("SELECT idPost, comment, dateCreation FROM post ORDER BY idPost DESC");
      $req->execute();
      $res = $req->fetchAll(PDO::FETCH_ASSOC);
      return $res;
@@ -80,7 +80,13 @@ function rmPost($id){
 }
 
 //UPDATE
-
+function updComment($id, $comment){
+     $upd = getConnexion();
+     $req = $upd->prepare("UPDATE post SET comment = :comment WHERE idPost = :id");
+     $req->bindParam(":comment", $comment, PDO::PARAM_STR);
+     $req->bindParam(":id", $id, PDO::PARAM_INT);
+     $req->execute();
+}
 
 //TRANSACTION
 function startTransaction(){

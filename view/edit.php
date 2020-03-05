@@ -12,15 +12,15 @@
 <body>
      <?php require_once 'nav.php'; ?>
     <div class="container">
-        <form action="?action=edit" method="POST" enctype="multipart/form-data">
+        <form action="#" method="POST" enctype="multipart/form-data">
             <div class="form-group">
-                <textarea rows="10" name="comment" class="form-control mt-3" placeholder="Poster votre message"> <?php $comment; ?> </textarea>
+                <textarea rows="10" name="comment" class="form-control mt-3" placeholder="Poster votre message"> <?= trim($postComment) ?> </textarea>
             </div>
             <label for="fileUpload" class="cmrRetro"><img style="margin: auto; display: block;" src="media/img/camera-retro-solid.svg" height="20em" /></label>
             <input type="file" name="imgPost[]" multiple accept="image/*, video/*, audio/*" style="display: none;" id="fileUpload" class="form-control-file" onchange="loadFile(event)">
-            <input type="submit" name="sendImg" class="btn btn-outline-light float-right colorB text-white" value="Envoyer">
+            <input type="submit" name="modify" class="btn btn-outline-light float-right colorB text-white" value="Envoyer">
         </form>
-        <div id="previewImg" class="ml-3"></div>
+        <div id="previewImg" class="ml-3"><?= $imgPath ?></div>
     </div>
     <script src="js/previewImg.js" type="text/javascript"></script>
 </body>

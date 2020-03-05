@@ -60,7 +60,7 @@ INSERT INTO `media` (`idMedia`, `typeMedia`, `extension`, `nameMedia`, `dateCrea
 
 CREATE TABLE `post` (
   `idPost` int(11) UNSIGNED NOT NULL,
-  `commentaire` varchar(250) NOT NULL,
+  `comment` varchar(250) NOT NULL,
   `dateCreation` datetime NOT NULL,
   `dateModification` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -69,7 +69,7 @@ CREATE TABLE `post` (
 -- Déchargement des données de la table `post`
 --
 
-INSERT INTO `post` (`idPost`, `commentaire`, `dateCreation`, `dateModification`) VALUES
+INSERT INTO `post` (`idPost`, `comment`, `dateCreation`, `dateModification`) VALUES
 (39, 'SUNSET ', '2020-02-27 00:00:00', NULL),
 (40, 'Bonjour', '2020-02-27 00:00:00', NULL),
 (41, 'Video', '2020-02-27 00:00:00', NULL),

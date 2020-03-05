@@ -42,7 +42,7 @@ function displayPost(){
                     break;
                }
           }
-          $display .= '<div class="card-body"><h5>'. $value['commentaire'] .'</h5></div></div>';
+          $display .= '<div class="card-body"><h5>'. $value['comment'] .'</h5></div></div>';
      }
      return $display;
 }
