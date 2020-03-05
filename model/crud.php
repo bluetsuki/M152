@@ -64,6 +64,24 @@ function getPost(){
      return $res;
 }
 
+//DELETE
+function rmMedia($id){
+     $rm = getConnexion();
+     $req = $rm->prepare("DELETE FROM media WHERE idPost = :id");
+     $req->bindParam(":id", $id, PDO::PARAM_INT);
+     $req->execute();
+}
+
+function rmPost($id){
+     $rm = getConnexion();
+     $req = $rm->prepare("DELETE FROM post WHERE idPost = :id");
+     $req->bindParam(":id", $id, PDO::PARAM_INT);
+     $req->execute();
+}
+
+//UPDATE
+
+
 //TRANSACTION
 function startTransaction(){
     getConnexion()->beginTransaction();

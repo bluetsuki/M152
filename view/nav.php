@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark colorB sticky-top">
-    <a class="navbar-brand" href="?action=index"><img src="media/img/bimobject-brands.svg" height="40em" class="colorWhite ml-md-2 ml-sm-1"/></a>
+    <a class="navbar-brand" href="?action=home"><img src="media/img/bimobject-brands.svg" height="40em" class="colorWhite ml-md-2 ml-sm-1"/></a>
     <form>
         <div class="input-group flex-nowrap">
             <input type="text" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="addon-wrapping">
