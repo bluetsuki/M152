@@ -22,11 +22,11 @@ function displayPost(){
      $display = '';
      foreach ($posts as $key => $value) {
           $media = getMedia($value['idPost']);
-          $display .= '<div class="card mt-3"><div><div class="imgModif float-right"><a href="?action=edit&edit=';
-          $display .= $value['idPost'];
-          $display .= '"><button><img class="defImg" src="media/img/keyboard-regular.svg"></button></a><a href="?action=home&rm=';
-          $display .= $value['idPost'];
-          $display .= '"><button><img class="defImg" src="media/img/trash-alt-regular.svg"></button></a></div></div>';
+          $id = $value['idPost'];
+          $display .= <<<IDPOST
+               <div class="card mt-3"><div><div class="imgModif float-right"><a href="?action=edit&edit=$id"><button><img class="defImg" src="media/img/keyboard-regular.svg"></button></a><a href="?action=home&rm=$id"><button><img class="defImg" src="media/img/trash-alt-regular.svg"></button></a></div></div>
+          IDPOST;
+
           foreach ($media as $key => $m) {
                switch ($m['typeMedia']) {
                     case 'image':
