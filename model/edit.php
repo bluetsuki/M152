@@ -10,8 +10,6 @@ $imgPath = '';
 $btn = FILTER_INPUT(INPUT_POST, 'modify');
 $postMedia = getMedia($idEdit);
 
-var_dump($postMedia);
-
 if(!empty($rmMedia)){
      rmMedia($rmMedia);
      foreach ($postMedia as $value) {
