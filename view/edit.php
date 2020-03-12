@@ -22,6 +22,5 @@
           </form>
           <?= $imgPath ?>
      </div>
-     <script src="js/previewImg.js" type="text/javascript"></script>
 </body>
 </html>

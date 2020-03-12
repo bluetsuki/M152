@@ -5,3 +5,7 @@ body {
 .colorB{
      background-color: #2851A3 !important;
 }
+
+.post {
+     width: 300px;
+}

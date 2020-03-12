@@ -21,6 +21,5 @@
                <input type="submit" name="sendImg" class="btn btn-outline-light float-right colorB text-white" value="Envoyer">
           </form>
      </div>
-     <script src="js/previewImg.js" type="text/javascript"></script>
 </body>
 </html>

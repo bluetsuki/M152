@@ -85,6 +85,14 @@ function getPost(){
      return $res;
 }
 
+function getPostById($id){
+     $display = getConnexion();
+     $req = $display->prepare("SELECT idPost, comment, dateCreation FROM post WHERE idPost = :id");
+     $req->bindParam(":id", $id, PDO::PARAM_INT);
+     $req->execute();
+     return $req->fetchAll(PDO::FETCH_ASSOC);
+}
+
 /**
 * Delete a media by it id
 * @param int idPost

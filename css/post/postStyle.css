@@ -46,3 +46,7 @@ textarea {
 .cmrRetro:hover{
      background-color: rgba(80, 80, 80, 0.3);
 }
+
+.editPost {
+     width: 245px;
+}

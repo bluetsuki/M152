@@ -1,15 +1,25 @@
 <?php
 require_once 'model/crud.php';
 
-$idEdit = FILTER_INPUT(INPUT_GET, 'edit', FILTER_SANITIZE_NUMBER_INT);
+$idEdit = FILTER_INPUT(INPUT_GET, 'idEdit', FILTER_SANITIZE_NUMBER_INT);
 $rmMedia = FILTER_INPUT(INPUT_GET, 'rm', FILTER_SANITIZE_NUMBER_INT);
+
 $comment = FILTER_INPUT(INPUT_POST, 'comment', FILTER_SANITIZE_STRING);
-$postComment = getPost($idEdit)[0]['comment'];
-$postMedia = getMedia($idEdit);
+$postComment = getPostById($idEdit)[0]['comment'];
 $imgPath = '';
 $btn = FILTER_INPUT(INPUT_POST, 'modify');
+$postMedia = getMedia($idEdit);
 
-rmMedia($rmMedia);
+
+if(!empty($rmMedia)){
+     rmMedia($rmMedia);
+     foreach ($postMedia as $value) {
+          if($value['idMedia'] == $rmMedia)
+               unlink($value['pathImg']);
+     }
+}
+
+$postMedia = getMedia($idEdit);
 
 if ($btn == 'Envoyer') {
      try {
@@ -28,15 +38,15 @@ if ($btn == 'Envoyer') {
                     //get the type of the file and if it isn't an image the user is return to the post page
                     if ($type != 'image' && $type != 'video' && $type != 'audio') {
                          rollback();
-                         header('Location: ?action=edit&edit' . $idEdit);
+                         header('Location: #');
                          exit;
                     }
 
                     $path = str_replace(' ', '', $localPath) .  uniqid() . $filename;
                     if (addMedia($type, $filename, $ext, $path, $idEdit))
-                         move_uploaded_file($tmpName, $path);
+                    move_uploaded_file($tmpName, $path);
                     else
-                         rollback();
+                    rollback();
                }
           }
           updComment($idEdit, $comment);
@@ -49,19 +59,18 @@ if ($btn == 'Envoyer') {
      }
 }
 
-
 foreach ($postMedia as $key => $value) {
      $path = $value['pathImg'];
      $idMedia = $value['idMedia'];
 
      $imgPath .= <<<IDPOST
+     <div class="editPost float-left">
      <div>
-          <div>
-               <div class="imgModif">
-               <a href="?action=edit&edit=$idEdit&rm=$idMedia">
-                    <button><img class="defImg" src="media/img/trash-alt-regular.svg"></button>
-               </a>
-          </div>
+     <div class="imgModif float-right">
+     <a href="?action=edit&idEdit=$idEdit&rm=$idMedia">
+     <button><img class="defImg" src="media/img/trash-alt-regular.svg"></button>
+     </a>
+     </div>
      </div>
      IDPOST;
 
@@ -71,11 +80,11 @@ foreach ($postMedia as $key => $value) {
           break;
 
           case 'video':
-          $imgPath .= '<video class="mx-auto d-block mt-3" width="448" height="336" controls autoplay loop><source src="'. $value['pathImg'] .'" type="video/'. $value['extension'] .'"></video>';
+          $imgPath .= '<video width="200" height="112" controls><source src="'. $value['pathImg'] .'" type="video/'. $value['extension'] .'"></video>';
           break;
 
           case 'audio':
-          $imgPath .= '<audio class="mx-auto d-block mt-3" controls><source src="'. $value['pathImg'] .'" type="audio/'. $value['extension'] .'"></audio>';
+          $imgPath .= '<audio controls><source src="'. $value['pathImg'] .'" type="audio/'. $value['extension'] .'"></audio>';
           break;
      }
      $imgPath .= '</div>';

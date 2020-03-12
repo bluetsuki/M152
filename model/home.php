@@ -27,7 +27,7 @@ function displayPost(){
                <div class="card mt-3">
                     <div>
                          <div class="imgModif float-right">
-                              <a href="?action=edit&edit=$id">
+                              <a href="?action=edit&idEdit=$id">
                                    <button><img class="defImg" src="media/img/keyboard-regular.svg"></button>
                               </a>
                               <a href="?action=home&rm=$id">
@@ -40,7 +40,7 @@ function displayPost(){
           foreach ($media as $key => $m) {
                switch ($m['typeMedia']) {
                     case 'image':
-                    $display .= '<img src="'. $m['pathImg'] .'" class="card-img-top crdimg rounded mx-auto d-block mt-3" alt="...">';
+                    $display .= '<img src="'. $m['pathImg'] .'" class="card-img-top crdimg rounded mx-auto d-block mt-3 post">';
                     break;
 
                     case 'video':
