@@ -45,9 +45,9 @@ if ($btn == 'Envoyer') {
                          else {
                               $path = str_replace(' ', '', $localPath) .  uniqid() . $filename;
                               if (addMedia($type, $filename, $ext, $path, $id))
-                              move_uploaded_file($tmpName, $path);
+                                   move_uploaded_file($tmpName, $path);
                               else
-                              rollback();
+                                   rollback();
                          }
                     }
                }

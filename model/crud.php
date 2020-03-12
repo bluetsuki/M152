@@ -66,7 +66,7 @@ function addMedia($type, $name, $ext, $path, $id)
 */
 function getMedia($id){
      $display = getConnexion();
-     $req = $display->prepare("SELECT typeMedia, extension, pathImg FROM media WHERE idPost = :id");
+     $req = $display->prepare("SELECT idMedia, typeMedia, extension, pathImg FROM media WHERE idPost = :id");
      $req->bindParam(":id", $id, PDO::PARAM_INT);
      $req->execute();
      $res = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -86,10 +86,21 @@ function getPost(){
 }
 
 /**
-* Delete a media by the idPost
+* Delete a media by it id
 * @param int idPost
 */
 function rmMedia($id){
+     $rm = getConnexion();
+     $req = $rm->prepare("DELETE FROM media WHERE idMedia = :id");
+     $req->bindParam(":id", $id, PDO::PARAM_INT);
+     $req->execute();
+}
+
+/**
+* Delete a media by the idPost
+* @param int idPost
+*/
+function rmMediaByPost($id){
      $rm = getConnexion();
      $req = $rm->prepare("DELETE FROM media WHERE idPost = :id");
      $req->bindParam(":id", $id, PDO::PARAM_INT);
@@ -114,9 +125,26 @@ function rmPost($id){
 */
 function updComment($id, $comment){
      $upd = getConnexion();
-     $req = $upd->prepare("UPDATE post SET comment = :comment WHERE idPost = :id");
-     $req->bindParam(":comment", $comment, PDO::PARAM_STR);
+     $date = date("Y-m-d H:i:s");
+     $req = $upd->prepare("UPDATE post SET comment = :comment, dateModification = :dateModif WHERE idPost = :id");
      $req->bindParam(":id", $id, PDO::PARAM_INT);
+     $req->bindParam(":comment", $comment, PDO::PARAM_STR);
+     $req->bindParam(":dateModif", $date, PDO::PARAM_STR);
+     $req->execute();
+}
+
+/**
+* Modify a media
+* @param int idPost
+* @param string comment modify by the user
+*/
+function updMedia($type, $name, $ext, $path){
+     $upd = getConnexion();
+     $req = $upd->prepare("UPDATE `media` SET typeMedia = :type, extension = :ext, nameMedia = :name, pathImg = :pathImg");
+     $req->bindParam(":type", $type, PDO::PARAM_STR);
+     $req->bindParam(":name", $name, PDO::PARAM_STR);
+     $req->bindParam(":ext", $ext, PDO::PARAM_STR);
+     $req->bindParam(":pathImg", $path, PDO::PARAM_INT);
      $req->execute();
 }
 

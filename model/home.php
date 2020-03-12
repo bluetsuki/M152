@@ -6,7 +6,7 @@ $idEdit = FILTER_INPUT(INPUT_GET, 'edit', FILTER_SANITIZE_NUMBER_INT);
 try {
      startTransaction();
      $media = getMedia($idRm);
-     rmMedia($idRm);
+     rmMediaByPost($idRm);
      rmPost($idRm);
      foreach ($media as $key => $value) {
           unlink($value['pathImg']);
@@ -24,7 +24,17 @@ function displayPost(){
           $media = getMedia($value['idPost']);
           $id = $value['idPost'];
           $display .= <<<IDPOST
-               <div class="card mt-3"><div><div class="imgModif float-right"><a href="?action=edit&edit=$id"><button><img class="defImg" src="media/img/keyboard-regular.svg"></button></a><a href="?action=home&rm=$id"><button><img class="defImg" src="media/img/trash-alt-regular.svg"></button></a></div></div>
+               <div class="card mt-3">
+                    <div>
+                         <div class="imgModif float-right">
+                              <a href="?action=edit&edit=$id">
+                                   <button><img class="defImg" src="media/img/keyboard-regular.svg"></button>
+                              </a>
+                              <a href="?action=home&rm=$id">
+                                   <button><img class="defImg" src="media/img/trash-alt-regular.svg"></button>
+                              </a>
+                         </div>
+                    </div>
           IDPOST;
 
           foreach ($media as $key => $m) {
