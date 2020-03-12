@@ -20,7 +20,11 @@ function getConnexion()
      return $db;
 }
 
-//INSERT
+/**
+* Insert the comment into post
+* @param string comment of the user
+* @return int the id of the post
+*/
 function addPost($comment)
 {
      $date = date("Y-m-d H:i:s");
@@ -32,6 +36,15 @@ function addPost($comment)
      return $connexion->lastInsertId();
 }
 
+/**
+* Insert the media into the database
+* @param string type of the file
+* @param string name of the file
+* @param string ext of the file
+* @param string pathImg in local
+* @param int idPost
+* @return bool true if sucessful
+*/
 function addMedia($type, $name, $ext, $path, $id)
 {
      $connexion = getConnexion();
@@ -46,7 +59,11 @@ function addMedia($type, $name, $ext, $path, $id)
      return $req->execute();
 }
 
-//READ
+/**
+* Get the media by the idPost
+* @param int idPost
+* @return array a table assoc with the typeMedia, extension and pathImg
+*/
 function getMedia($id){
      $display = getConnexion();
      $req = $display->prepare("SELECT typeMedia, extension, pathImg FROM media WHERE idPost = :id");
@@ -56,6 +73,10 @@ function getMedia($id){
      return $res;
 }
 
+/**
+* Get the all post
+* @return array a table assoc with the idPost, comment and dateCreation in order DESC
+*/
 function getPost(){
      $display = getConnexion();
      $req = $display->prepare("SELECT idPost, comment, dateCreation FROM post ORDER BY idPost DESC");
@@ -64,7 +85,10 @@ function getPost(){
      return $res;
 }
 
-//DELETE
+/**
+* Delete a media by the idPost
+* @param int idPost
+*/
 function rmMedia($id){
      $rm = getConnexion();
      $req = $rm->prepare("DELETE FROM media WHERE idPost = :id");
@@ -72,6 +96,10 @@ function rmMedia($id){
      $req->execute();
 }
 
+/**
+* Delete a post by it id
+* @param int idPost
+*/
 function rmPost($id){
      $rm = getConnexion();
      $req = $rm->prepare("DELETE FROM post WHERE idPost = :id");
@@ -79,7 +107,11 @@ function rmPost($id){
      $req->execute();
 }
 
-//UPDATE
+/**
+* Modify a comment
+* @param int idPost
+* @param string comment modify by the user
+*/
 function updComment($id, $comment){
      $upd = getConnexion();
      $req = $upd->prepare("UPDATE post SET comment = :comment WHERE idPost = :id");
